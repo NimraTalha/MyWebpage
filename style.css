@@ -1,221 +1,360 @@
-/* General Styles */
-body, h1, h2, p, ul, li, a, button, input, textarea {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lobster", cursive;
 }
 
-body {
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-  box-sizing: border-box;
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+/* Add fade-in effect to the main sections */
+.portfolio-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    animation: fadeIn 2s ease-in-out;
+    background: rgb(186, 101, 186);
 }
 
-/* Header and Navigation */
-header {
-  background-color: #853d6b;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.navlist {
+    display: flex;
+    gap: 3.5rem;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
+.navlist li {
+    list-style: none;
 }
 
-nav ul li {
-  margin: 0 15px;
+.navlist li a {
+    color: rgb(228, 164, 229); /* Change link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Add transition for hover effect */
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+.navlist li a:hover {
+    color: rgb(186, 101, 186); /* Change hover color */
 }
 
-nav ul li a:hover {
-  color: #ffdd59;
+.left-container,
+.right-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
-/* Headings Styling */
-h1, h2 {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-  font-weight: 700;
-  position: relative;
-  animation: bounceIn 0.8s ease-out;
+.left-container {
+    background: #262525;
+    width: 55%;
+    padding-left: 3rem;
 }
 
-h1 {
-  font-size: 40px;
+.right-container {
+    background: linear-gradient(-45deg, rgb(133, 82, 133), #262525 70%);
+    width: 45%;
 }
 
-h2 {
-  font-size: 32px;
+.icons .fa-brands {
+    color: #bbb;
+    font-size: 1.7rem;
 }
 
-.gradient-text {
-  background: linear-gradient(45deg, #ff4757, #1e90ff, #ffdd59);
-  -webkit-background-clip: text; /* WebKit-based browsers */
-  background-clip: text; /* Standard property */
-  -webkit-text-fill-color: transparent; /* WebKit-based browsers */
-  font-weight: bold;
-}
-
-/* Underline Animation */
-h1::after, h2::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #ff4757; /* Color of underline */
-  transition: width 0.3s;
-}
-
-h1:hover::after, h2:hover::after {
-  width: 100%; /* Expand underline to full width */
-}
-
-/* Bounce Animation */
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  80% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Section Styles */
-section {
-  margin: 40px auto;
-  max-width: 800px;
-  text-align: center;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-p {
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-/* Image Styling */
-img {
-  width: 300px;
-  height: auto;
-  border-radius: 50%;
-  margin-top: 20px;
-}
-
-/* Contact Form Styling */
-form {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-form label {
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-form input, form textarea {
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-}
-
-form button {
-  background-color: #6a2a67;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #613349;
-}
-
-/* Footer Styling */
-footer {
-  background-color: #763863;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Responsive Design */
-@media (min-width: 768px) {
-  main {
+.icons {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-  }
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
 
-  nav ul {
-    flex-direction: row;
-  }
+.content {
+    margin-left: 4rem;
+}
 
-  nav ul li {
-    margin: 0 15px;
-  }
+.content .intro {
+    font-size: 1.5rem;
+    color: #fff;
+}
 
-  section {
-    padding: 20px;
-  }
+.content .intro span {
+    color: rgb(186, 101, 186);
+}
 
-  img {
-    width: 300px;
-  }
+.content h1 {
+    font-size: 4rem;
+    color: rgb(186, 101, 186);
+}
+
+.content .details {
+    font-size: 1.1rem;
+    color: #fff;
+    max-width: 38rem;
+    margin: 1.1rem 0 3rem 0;
+    line-height: 1.8rem;
+}
+
+.btn-container button {
+    border: .1rem solid rgb(186, 101, 186);
+    font-size: 1.1rem;
+    padding: .8rem .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+button:nth-child(1) {
+    background: rgb(181, 123, 181);
+    color: #262525;
+}
+
+button:nth-child(2) {
+    background: transparent;
+    color: rgb(181, 123, 181);
+    margin-left: 2rem;
+}
+
+button:nth-child(1):hover {
+    background: transparent;
+    color: rgb(181, 123, 181);
+}
+
+button:nth-child(2):hover {
+    background: rgb(181, 123, 181);
+    color: #262525;
+}
+
+.icons .fa-brands:hover {
+    cursor: pointer;
+    background: linear-gradient(#fff, rgb(181, 123, 181));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.design .circle {
+    aspect-ratio: 1;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(1) {
+    background: linear-gradient(90deg, transparent 10%, #262525 90%);
+    width: 38rem;
+}
+
+.circle:nth-child(2) {
+    background-image: url("/images/logo.jpg");
+    width: 30rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: .1rem solid #ffff;
+    box-shadow: 
+        0 0 1rem #fff,
+        inset 0 0 1rem #fff,
+        0 0 2rem rgb(82, 41, 82),
+        inset 0 0 2rem rgb(82, 41, 82),
+        0 0 4rem rgb(186, 101, 186),
+        inset 0 0 4rem rgb(186, 101, 186);
+}
+
+.projects-section {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    margin-top: 5px;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project {
+    margin: 1rem;
+    text-align: center;
+    width: 250px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.project:hover img {
+    transform: scale(1.05);
+}
+
+.project p {
+    font-size: 0.9rem;
+    color: #555;
+    padding: 0 1rem;
+}
+
+.view-project-button {
+    background-color: rgb(181, 123, 181);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.view-project-button:hover {
+    background-color: rgb(150, 100, 150);
+}
+
+.projects-section h2 {
+    color: rgb(141, 108, 141);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .left-container,
+    .right-container {
+        width: 100%; /* Full width for both containers */
+        height: auto; /* Adjust height based on content */
+        padding: 1rem; /* Adjust padding */
+    }
+
+    .content {
+        margin-left: 0; /* Remove left margin */
+        text-align: center; /* Center text */
+    }
+
+    .content h1 {
+        font-size: 3rem; /* Adjust heading size */
+    }
+
+    .content .details {
+        font-size: 1rem; /* Adjust details font size */
+        max-width: 90%; /* Limit max width */
+    }
+
+    .btn-container {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons */
+    }
+
+    button {
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Full width for buttons */
+    }
 }
 
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
+    .navlist {
+        flex-direction: column; /* Stack navigation items vertically */
+        height: auto; /* Allow height to be determined by content */
+        padding: 0.5rem; /* Adjust padding */
+    }
 
-  section {
-    padding: 0 10px;
-  }
+    .navlist li {
+        margin: 0.5rem 0; /* Add spacing between items */
+    }
 
-  img {
-    width: 200px;
-  }
+    .projects-section {
+        position: static; /* Make projects section static */
+        margin-top: 2rem; /* Add margin */
+    }
+
+    .project {
+        width: 90%; /* Full width for projects */
+        margin: 1rem auto; /* Center projects */
+    }
+
+    .circle {
+        width: 20rem; /* Adjust circle sizes for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 2rem; /* Further adjust heading size */
+    }
+
+    .btn-container button {
+        font-size: 0.9rem; /* Adjust button font size */
+        padding: 0.5rem; /* Adjust padding */
+    }
+}
+/* Styling for the contact form */
+#contact-form {
+    background-color: #f9f9f9; /* Light background for the form */
+    padding: 2rem; /* Add padding around the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 500px; /* Set a max width for the form */
+    margin: 2rem auto; /* Center the form */
+}
+
+#contact-form label {
+    display: block; /* Make labels block elements */
+    margin: 1rem 0 0.5rem; /* Space above and below labels */
+    font-size: 1rem; /* Font size for labels */
+    color: rgb(186, 101, 186); /* Color for labels */
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%; /* Full width */
+    padding: 0.8rem; /* Padding inside the fields */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size for input fields */
+    transition: border-color 0.3s; /* Smooth border color change */
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: rgb(186, 101, 186); /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+#contact-form button {
+    margin-top: 1rem; /* Space above the button */
+    padding: 0.8rem 1.5rem; /* Padding inside the button */
+    background-color: rgb(186, 101, 186); /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+#contact-form button:hover {
+    background-color: rgb(141, 108, 141); /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
 }
